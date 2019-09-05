@@ -1,0 +1,26 @@
+[alias]
+	br = branch
+	st = status
+	co = checkout
+	cob = checkout -b
+	lol = git log --oneline --graph
+	res-head = reset HEAD^ --soft
+	reseth = reset --hard
+	amend = commit --amend
+	ec = config --global --edit
+	cm = commit
+	lol = log --oneline --graph
+	cp = cherry-pick
+	po = push origin
+	fixup = commit --fixup
+	ri = rebase --interactive --autosquash --autostash
+	pc = "!f() { git push origin HEAD:$(git branch | grep \"*\" | cut -c 3-) "$1"; }; f"
+	grepco = "!f() { git co $(git br | grep "$1" | cut -c 3-); }; f"
+	rc = rebase --continue
+	tidy= "!f() { git branch | grep -v \"develop\" | xargs git branch -D; }; f"
+	sur = submodule update --recursive
+	f = fetch
+	ro = "!f() { git f && git reseth origin/$(git br | grep \"*\" | cut -c 3-); }; f"
+[core]
+	editor = vim
+
